@@ -1,0 +1,110 @@
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+	outline: none;
+	box-shadow: none;
+}
+.navbar{
+    background-color: #d1ccc0;
+}
+
+.icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	margin-bottom: 4px;
+	background-color: white;
+	border-radius: 1px;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+	border-radius: 1px;
+}
+
+
+.navbar-toggler.x .icon-bar:nth-of-type(1) {
+	-webkit-transform: skewY(45deg) scale(1, 2);
+	-ms-transform: skewY(45deg) scale(1, 2);
+	transform: skewY(45deg) scale(1, 2);
+	transform-origin: top left;
+	border-radius: 2px;
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(2) {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.navbar-toggler.x .icon-bar:nth-of-type(3) {
+	-webkit-transform: skewY(-45deg) translate(0, 10px) scale(1, 2);
+	-ms-transform: skewY(-45deg) translate(0, 10px) scale(1, 2);
+	transform: skewY(-45deg) translate(0, 10px) scale(1, 2);
+	transform-origin: top left;
+	border-radius: 2px;
+}
+
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(1) {
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	transform: rotate(0);
+}
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(2) {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.navbar-toggler.x.collapsed .icon-bar:nth-of-type(3) {
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	transform: rotate(0);
+}
+
+settingsbtn:focus,
+.settingsbtn:active,
+.settingsbtnr-icon:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.settingsbtn {
+	border: none;
+	background: none;
+}
+
+.settingsbtn img {
+	transition: transform 0.3s ease;
+}
+
+.settingsbtn.show img {
+	transform: rotate(120deg);
+}
+
+.nav-link {
+	position: relative;
+	color: white !important;
+	cursor: pointer;
+}
+
+.nav-link:hover {
+	position: relative;
+	color: whitesmoke;
+}
+
+.nav-link::before {
+	content: '';
+	width: 0px;
+	height: 3px;
+	background-color: whitesmoke;
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	bottom: 0;
+	transition: all 0.5s ease;
+	z-index: 1;
+}
+
+.nav-link:hover::before {
+
+	width: 100%;
+}

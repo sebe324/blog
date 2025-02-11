@@ -1,0 +1,12 @@
+.comment-form-body{
+    border:0;
+    background-color: #efefef !important;
+}
+.form-control:focus{
+    box-shadow: none;
+  }
+.comment-form-name{
+    border:0;
+    border-radius: 0px;
+    
+}

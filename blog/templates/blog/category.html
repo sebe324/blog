@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+{%load static%}
+
+{%block title%}{{category.name}}{%endblock title%}
+
+{%block content%}
+<link rel = "stylesheet" href="{% static 'blog/style.css' %}">
+<div class="container">
+
+<div class="row">
+{% for element in elements%}
+<a href="{% url 'blog:post' element.0.id %}" class="col blogpost">
+    <div class="p-3">
+        <h4>{{element.0.title}}</h4>
+        <h5>{{element.2}}</h5>
+        <p>{{element.1}}</p>
+    </div>
+</a>
+</div>
+{%endfor%}
+</div>
+{%endblock content%}

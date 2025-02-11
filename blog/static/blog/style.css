@@ -1,0 +1,80 @@
+body{
+    background-color: white;
+}
+
+.blogpost{
+    border-radius:12px;
+    /* border:4px solid #eeeeee; */
+    text-decoration: none;
+    color:black;
+    height: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+.blogpost h4{
+    font-weight: bold;
+    color:#101010;
+    padding:10px;
+}
+.blogpost h5{
+    color:gray;
+}
+.blogpost:hover h4{
+    color:black;
+}
+.blogpost p{
+    color:#454545;
+}
+.blogpost:hover h5{
+    color:#505050;
+}
+
+.blogpost:hover p{
+    color:black;
+}
+.blogpost:hover{
+    background-color: #eeeeee !important;
+    transform: translateY(-10px);
+}
+
+.cleaner
+{
+    clear:both;
+}
+
+.skillset-red{
+    --bg-color: red;
+    border-color:var(--bg-color) !important;
+}
+
+.skillset-blue{
+    --bg-color: blue;
+    border-color:var(--bg-color) !important;
+}
+
+.skillset-lime
+{
+    --bg-color: lime;
+    border-color:var(--bg-color)  !important;
+}
+
+.skillset-purple{
+    --bg-color: #aa00aa;
+    border-color:var(--bg-color) !important;
+}
+
+.skillset-lightblue{
+    border-color: lightskyblue !important;
+}
+
+.skillset-yellow{
+    border-color: #aaaa00 !important;
+}
+
+.skillset-orange{
+    border-color: orange !important;
+}

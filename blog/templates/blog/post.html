@@ -1,0 +1,32 @@
+{%extends 'blog/base.html'%}
+{%load static %}
+
+{%block title%}{{post.title}}{%endblock title%}
+{%block content%}
+<link rel="stylesheet" href = "{% static 'blog/post.css'%}">
+<div class="container">
+
+            <h1>{{post.title}}</h1>
+            <p>{{post.body}}</p>
+<h3>Leave a comment:</h3>
+<form method="post">
+{% csrf_token %}
+<div>{{form.author}}</div>
+<div>{{form.body}}</div>
+<button type="submit" class="btn btn-primary float-md-end mt-2 d-block">Post</button>
+</form>
+
+<h3 class="mt-5">Comments:</h3>
+{% for comment in comments %}
+<div class="comment">
+    <b>{{comment.author}}</b>
+<p>
+    {{comment.created_on.date}} 
+</p>
+<p>
+    {{comment.body | linebreaks}}
+</p>
+</div>
+{%endfor%}
+</div>
+{%endblock content%}

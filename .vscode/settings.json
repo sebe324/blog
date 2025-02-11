@@ -1,0 +1,13 @@
+{
+  "html.autoClosingTags": true,
+  
+  "files.associations": {
+    "*.html": "django-html",
+    "*.dtl": "django-html"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "emmet.showExpandedAbbreviation": "always",
+  "editor.formatOnType": true
+}

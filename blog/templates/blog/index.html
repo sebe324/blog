@@ -1,0 +1,100 @@
+{%extends 'blog/base.html'%}
+{%load static %}
+{%block title%}Sebastian Skonieczny{%endblock title%}
+{%block content%}
+
+<link rel="stylesheet" href = "{% static 'blog/style.css'%}">
+<link rel="stylesheet" href = "{% static 'blog/index.css'%}">
+<link rel="stylesheet" href = "{% static 'blog/project-card.css'%}">
+<div class="container-fluid cooltext">
+
+    <div class="row front-look justify-content-md-center align-items-md-center align-content-start align-content-md-center mb-0 mb-md-4">
+        <div class="col-md-5 name text-center text-md-start pb-md-0 pb-4">
+            <h1><b>Sebastian Skonieczny</b></h1>
+            <h3>
+                Full-stack Software Engineer
+            </h3>
+            <br/>
+            <p><b>Skill Set</b></p>
+            <div class="skillsets">
+            <div class="skillset-blue">Python</div><div class="skillset-red">Machine Learning</div><div class="skillset-blue">Django</div><div class="skillset-orange">Tensorflow</div><div class="skillset-yellow">LLMs</div><div class="skillset-purple">Bootstrap</div><div class="skillset-lime">SQL</div><div class="skillset-blue">Flask</div><div class="skillset-lightblue">React</div><div class="skillset-blue">C++</div><div class="skillset-orange">Javascript</div>
+            </div>
+        </div>
+        <div class="col-md-5 img-container">
+            <img src="{% static 'blog/images/xd.jpg' %}" class="lol" alt="picture"></img>
+        </div>
+    </div>
+</div>
+<div class="container">
+        <div class="row">
+            <div class='col-12 mt-4'>
+                <h1 class="text-center text-md-start">About me</h1>
+                <p>
+                    Hi, I'm a passionate programmer and a full stack developer. I mostly do Django, Flask and Python for the backend while for the frontend I use React and Bootstrap. I'm also interested in machine learning and game development.
+                </p>
+                <p>
+                    Aside from programming I enjoy playing video games, driving and eating pizza.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row g-3">
+            <h1 class="text-center text-md-start">
+                Recent blog posts
+            </h1>
+        {%for post_card in post_cards %}
+        <div class="col-md-6 ">
+        <a href="{% url 'blog:post' post_card.0.id %}" class="blogpost p-3 d-block">
+                <h4>{{post_card.0.title}}</h4>
+                <h5>{{post_card.2}}</h5>
+                <p>{{post_card.1}}</p>
+        </a>
+    </div>
+        {%endfor%}
+        <a href="{% url 'blog:posts' %}" class="text-center blog-more mt-3">See more</a>
+    </div>
+    <div class="row g-3">
+        <h1>Projects</h1>
+
+        {%for project_card in project_cards%}
+        <div class="col-md-4">
+            <a href={{project_card.0.repo_link}} class="project-card d-block" target="_blank">
+                    <img src="{{ project_card.0.image}}"></img>
+                <h4 class="text-center">{{project_card.0.title}}</h4>
+            <p>{{project_card.0.description}}</p>   
+            <div class="skillset-card text-center">
+                {%for technology in project_card.1 %}
+                <div class="technology-card {{technology.color}}">{{technology.name}}</div>
+                {%endfor%}
+                </div>
+            </a>
+        </div>
+        {%endfor%}
+    <a href="{% url 'blog:projects' %}" class="text-center blog-more mt-3">See more</a>
+    </div>
+    <div class="row mt-5">
+        <h1 class="text-center text-md-start">Contact</h1>
+                        <p>
+                            Feel free to reach out via social media or drop me an email if you're interested in collaborating or just want to connect.
+                        </p>
+        <div class="col-md-4 text-center text-md-start">
+            <a class='contact-wrap ms-2 me-2 mb-3' href="https://github.com/sebe324" target="_blank">
+                <img src="{% static 'blog/images/github-mark.png'%}" alt="github" />
+            </a>
+            <a class='contact-wrap me-2' href="https://www.linkedin.com/in/sebastian-skonieczny-384573276/" target="_blank">
+                <img src="{% static 'blog/images/linkedin-square.svg'%}" alt="linkedin" />
+            </a>
+            <a class='contact-wrap me-2' href="mailto:skonieczny.sebastian123@gmail.com">
+                <img src="{% static 'blog/images/email.png'%}" alt="skonieczny.sebastian123@gmail.com" />
+            </a>
+        </div>
+    </div>
+        <footer class='row mt-5'>
+            <div class='col-12 footer text-center text-md-start p-3'>
+                © Sebastian Skonieczny | 2024
+            </div>
+        </footer>
+        </div>
+    </div>
+{%endblock content%}
