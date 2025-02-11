@@ -5,10 +5,11 @@ from blog.models import Post, Comment, Category, Project, Technology
 import logging
 from django.http import HttpResponseRedirect
 from blog.forms import CommentForm
-
+import random
 
 logger = logging.getLogger('django')
-
+def get_last_n(lst, n):
+    yield lst[len(lst)-n:len(lst)]
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on")[:2]
     previews = []
@@ -16,8 +17,11 @@ def blog_index(request):
     for post in posts:
         previews.append(post.body[:200])
         dates.append(post.created_on.date)    
-
-    projects = Project.objects.all()[:3]
+    amount_of_projects = len(Project.objects.all())
+    random_projs = random.sample(range(amount_of_projects), 3 if amount_of_projects>=3 else amount_of_projects)
+    projects=[]
+    for i in random_projs:
+        projects.append(Project.objects.all()[random_projs[i]])
     technologies=[]
     for project in projects:
         technologies.append(Technology.objects.all().filter(projects=project))
