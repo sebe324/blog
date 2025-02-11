@@ -21,7 +21,7 @@ def blog_index(request):
     random_projs = random.sample(range(amount_of_projects), 3 if amount_of_projects>=3 else amount_of_projects)
     projects=[]
     for i in random_projs:
-        projects.append(Project.objects.all()[random_projs[i]])
+        projects.append(Project.objects.all()[i])
     technologies=[]
     for project in projects:
         technologies.append(Technology.objects.all().filter(projects=project))
