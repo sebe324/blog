@@ -153,3 +153,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+CSRF_TRUSTED_ORIGINS=["https://"+env.URL,"https://"+env.WWW_URL]
+
