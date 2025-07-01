@@ -23,7 +23,7 @@ jobs:
             python-version: '3.11'
         - name: Create .env file
           run: |
-             echo "IP=${IP} >> .env"
+             echo "IP=${IP}" >> .env"
              echo "SECRET_KEY=${SECRET_KEY}" >> .env"
              echo "URL=${URL}" >> .env"
         - name: install deps
