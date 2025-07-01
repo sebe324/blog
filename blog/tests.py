@@ -2,6 +2,9 @@ from django.test import TestCase
 from django.test import Client
 from django.urls import reverse 
 from .models import Post,Category, Technology, Project
+from django.conf import settings
+
+print(settings.SECRET_KEY, "secret-key")
 class BlogTestCase(TestCase):
     def testBlogPosts(self):
         client = Client()
