@@ -22,11 +22,11 @@ jobs:
             python-version: '3.11'
         - name: Create .env file
           run: |
-             echo "IP=${{ secrets.IP }}" >> .env
-             echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
-             echo "URL=${{ secrets.URL }}" >> .env
-        - name: test .env
-          run: grep URL .env
+             echo "IP=${{ secrets.IP }}" >> personal_blog/.env
+             echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> personal_blog/.env
+             echo "URL=${{ secrets.URL }}" >> personal_blog/.env
+        # - name: test .env
+        #   run: grep URL .env
         - name: install deps
           run: pip install -r requirements.txt
         
