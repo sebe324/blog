@@ -23,7 +23,7 @@ jobs:
         - name: Create .env file
           run: |
              echo "IP=${{ github.IP }}" >> .env
-             echo "SECRET_KEY=${{ github.SECRET_KEY }} >> .env
+             echo "SECRET_KEY=${{ github.SECRET_KEY }}" >> .env
              echo "URL=${{ github.URL }}" >> .env
         - name: install deps
           run: pip install -r requirements.txt
