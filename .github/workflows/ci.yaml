@@ -1,0 +1,34 @@
+name: Build and Test
+
+run-name: ${{ github.actor }} is trying to make changes to the repository.
+
+on: 
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+            
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+        - name: Get python
+          uses: actions/setup-python@v5
+          with:
+            python-version: '3.11'
+        - name: Create .env file
+          run: |
+             echo "IP=${IP} >> .env"
+             echo "SECRET_KEY=${SECRET_KEY} >> .env"
+             echo "URL=${URL} >> .env"
+        - name: install deps
+          run: pip install -r requirements.txt
+
+        - name: run tests
+          run: python manage.py test
+        
+
