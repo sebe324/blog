@@ -25,6 +25,8 @@ jobs:
              echo "IP=${{ secrets.IP }}" >> .env
              echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> .env
              echo "URL=${{ secrets.URL }}" >> .env
+        - name: test .env
+          run: grep URL .env
         - name: install deps
           run: pip install -r requirements.txt
         
