@@ -13,7 +13,6 @@ on:
 jobs:
     build-and-test:
         runs-on: ubuntu-latest
-        environment: project-env
         steps:
         - name: Checkout repository
           uses: actions/checkout@v4
@@ -23,9 +22,9 @@ jobs:
             python-version: '3.11'
         - name: Create .env file
           run: |
-             echo "IP=${IP}" >> .env
-             echo "SECRET_KEY=${SECRET_KEY}" >> .env
-             echo "URL=${URL}" >> .env
+             echo "IP=${{ github.IP }}" >> .env
+             echo "SECRET_KEY=${{ github.SECRET_KEY }} >> .env
+             echo "URL=${{ github.URL }}" >> .env
         - name: install deps
           run: pip install -r requirements.txt
         
