@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY","")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-url_test = os.getenv("URL","")
+URL_TEST = os.getenv("URL","")
 
 ALLOWED_HOSTS = ['127.0.0.1',os.getenv("IP",""),os.getenv("URL",""), "www."+os.getenv("URL","")]
 

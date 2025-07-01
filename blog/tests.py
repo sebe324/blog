@@ -1,5 +1,5 @@
 from django.test import TestCase
 from django.conf import settings
 
-print(settings.url_test)
+print(settings.URL_TEST)
 # Create your tests here.
