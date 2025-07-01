@@ -28,6 +28,8 @@ jobs:
         - name: install deps
           run: pip install -r requirements.txt
         
+        - name: Collect static files
+          run: python manage.py collectstatic --noinput
         - name: Migrate DB
           run: python manage.py migrate
 
