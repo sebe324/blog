@@ -27,7 +27,10 @@ jobs:
              echo "URL=${URL} >> .env"
         - name: install deps
           run: pip install -r requirements.txt
-
+        
+        - name: Migrate DB
+          run: python manage.py migrate
+          
         - name: run tests
           run: python manage.py test
         
