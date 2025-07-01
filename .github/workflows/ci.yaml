@@ -11,7 +11,7 @@ on:
             - main
             
 jobs:
-    build:
+    build-and-test:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout repository
@@ -30,7 +30,7 @@ jobs:
         
         - name: Migrate DB
           run: python manage.py migrate
-          
+
         - name: run tests
           run: python manage.py test
         
