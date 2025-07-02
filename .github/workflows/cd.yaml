@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+    
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Setup SSH key
+              uses: webfactory/ssh-agent@v0.8.1
+              with:
+                ssh-private-key: ${{secrets.SSH_KEY}}
+            - name: Deploy to DO
+              run: |
+                ssh -o StrictHostKeyChecking=no root@${{secrets.IP}} << 'EOF'
+                cd /var/www/html/django-website
+                git pull origin main
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install -r requirements.txt
+                python3 manage.py collectstatic
+                deactivate
+                service apache2 restart
