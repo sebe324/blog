@@ -5,7 +5,7 @@
 	box-shadow: none;
 }
 .navbar{
-    background-color: #d1ccc0;
+    background-color: oklch(27.848% 0.08442 39.626)
 }
 
 .icon-bar {
