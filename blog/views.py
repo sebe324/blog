@@ -10,6 +10,7 @@ import random
 logger = logging.getLogger('django')
 def get_last_n(lst, n):
     yield lst[len(lst)-n:len(lst)]
+    
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on")[:2]
     previews = []
