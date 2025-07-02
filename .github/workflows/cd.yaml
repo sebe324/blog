@@ -26,5 +26,6 @@ jobs:
                 source venv/bin/activate
                 pip install -r requirements.txt
                 python3 manage.py collectstatic
+                python3 manage.py migrate
                 deactivate
                 service apache2 restart
